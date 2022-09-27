@@ -1,0 +1,183 @@
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Hi there", "Howdy", "Is anyone there?","Hey","Hola", "Hello", "Good day","Halo","Oi","Test",""],
+     "responses": ["Hello", "Hi, nice to see you", "Hi there, how can I help?"],
+     "context": [""]
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+     "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+     "context": [""]
+    },
+
+    {"tag": "both_name",
+    "patterns": ["What is your name", "What should I call you", "Do you have a name"],
+    "responses": ["I do not have any name, I am just a regular Both", "I would be unecessary to know my name, just ask along","Sorry, I cannot provide you my name"],
+    "context": [""]
+    },
+
+    {"tag": "stock_def",
+     "patterns": ["What is Stock","Give me the definition of Stock","What is the definition of Stock","What Stock means"],
+     "responses": ["A stock, or equity, is a financial instrument that reflects ownership of a portion of the corporation. If you own it, you automatically get a share of ownership of that company!"],
+     "context": [""]
+    },
+
+    {"tag": "stock_market_def",
+     "patterns": ["What is Stock Market","Give me the definition of Stock Market","What is the definition of Stock Market","What Stock Market means"],
+     "responses": ["Stock market is a place where investors buy and sell shares of companies. This market allow you to see the shares in each corporation or the overall economy"],
+     "context": [""]
+    },
+
+    {"tag": "stock_market_inv",
+    "patterns": ["Where investor often buy stock","Where investor purchase stock"],
+    "responses": ["Investors often purchase and sell company shares on the stock market"],
+    "context": [""]
+    },
+
+    {"tag": "buy_stock_procedure",
+     "patterns": ["How to buy stock","What are the procedure to buy stock","What should I do if I want to buy stock"],
+     "responses": ["If you want to buy a stock, you need a broker. Broker acts as an intermediary between investors and aset traders. It is easier if you buy stocks through online stockbrocker. One of must important requirement is you must have required fund to invest."],
+     "context": [""]
+    },
+
+    {"tag": "trader_def",
+    "patterns": ["What is Trader","Give me the definition of Trader","What is the definition of Trader","What Trader means"],
+    "responses": ["In Stock, trader refers to the activity of buying and selling assets"],
+    "context": [""]
+   },
+
+    {"tag": "stock_age_min",
+    "patterns": ["How old am I to buy stock", "In what age I can buy stock","What is the minimum age to buy stock"],
+    "responses": ["You must be atleast 18-years-old to buy stock"," You have to be 18-years-old to buy stocks on your own","If you already reaching 18, you are good to go"],
+    "context": [""]
+    },
+
+   {"tag": "dividend_def",
+   "patterns": ["What is Dividend","Give me the definition of Dividend","What is the definition of Dividend","What Dividend means"],
+   "responses": ["Dividends are distribution of payments made to shareholders from a company's profits. The distribution is determined by each company itself."],
+   "context": [""]
+    },
+
+    {"tag": "buy_stock_reason",
+    "patterns": ["Why I should buy Stock","What the reason to buy stock","Should I buy Stock"],
+    "responses": ["You can get greater return","You can protect your finances, particularly against inflation."],
+    "context": [""]
+    },
+
+    {"tag": "late_to_buy",
+    "patterns": ["Is it too late to buy stock","Can I buy Stock right now"],
+    "responses": ["It is never to late to invest. If you never buy any stock before, you can start by doing some research about stock market such as what to do, what to avoid, risk, benefit and others. The faster you start, the more benefit you can get."],
+    "context": [""]
+    },
+
+    {"tag": "analyze_stock_where",
+    "patterns": ["Where to analyze stock","What platform to analyze stock","What website to analyze stock"],
+    "responses": ["In analyzing stock, you definitely want fast and accurate result. There are several Stock analysis and research tool you can use but if you do not want to spend any cent, try Yahoo Finance, Zacks, and Google Finance for starter"],
+    "context": [""]
+    },
+
+   {"tag": "market_cap_def",
+   "patterns": ["What is Market capitalization","Give me the definition of Market capitalization","What is the definition of Market capitalization","What Market capitalization means"],
+   "responses": ["Market Capitalization is the aggregate market value of a company. In another sense, it is the total value of the company's shares that are publicly traded in a larger stock market. Which means it can evaluate how worth company's stock share in market."],
+   "context": [""]
+    },
+    {"tag": "market_cap1_def",
+    "patterns": ["What is Market Cap","Give me the definition of Market Cap","What is the definition of Market Cap","What Market Cap means"],
+    "responses": ["Market Cap is the aggregate market value of a company. In another sense, it is the total value of the company's shares that are publicly traded in a larger stock market. Which means it can evaluate how worth company's stock share in market."],
+    "context": [""]
+    }, 
+    {"tag": "pbv_def",
+    "patterns": ["What is PBV","Give me the definition of PBV","What is the definition of PBV","What PBV means"],
+    "responses": ["PBV or Price to book value is ration to comparing stock price company to book value per share. It can be used to assess whether the stock is categorized as overvalued (expensive) or undervalued (cheap)"],
+    "context": [""]
+    },
+    {"tag": "pbv1_def",
+    "patterns": ["What is Price to book value","Give me the definition of Price to book value","What is the definition of Price to book value","What Price to book value means"],
+    "responses": ["PBV or Price to book value is ration to comparing stock price company to book value per share. It can be used to assess whether the stock is categorized as overvalued (expensive) or undervalued (cheap)"],
+    "context": [""]
+    },
+   {"tag": "book_value_share_def",
+   "patterns": ["What is Book value","Give me the definition of Book value","What is the definition of Book value","What Book value means"],
+   "responses": ["Book value per share defined as its total assets minus any liabilities. It measures a company's net worth."],
+   "context": [""]
+    },
+    {"tag": "pe_def",
+    "patterns": ["What is P/E","Give me the definition of P/E","What is the definition of P/E","What P/E means"],
+    "responses": ["Price earning ratio is one of the financial ratios used to see how the potential of the profit in a company. It calculated by dividing the market value price per share by the company's earnings per share."],
+    "context": [""]
+    },
+    {"tag": "pe1_def",
+    "patterns": ["What is Price earning ratio","Give me the definition of Price earning ratio","What is the definition of Price earning ratio ","What Price earning ratio  means"],
+    "responses": ["Price earning ratio is one of the financial ratios used to see how the potential of the profit in a company. It calculated by dividing the market value price per share by the company's earnings per share."],
+    "context": [""]
+    },
+    {"tag": "peg_def",
+    "patterns": ["What is PEG","Give me the definition of PEG","What is the definition of PEG","What PEG means"],
+    "responses": ["Price/Earning-to-Growth (PEG) Ratio is a ratio used to predict the company's earnings growth in the future. The PEG ratio compares a company P/E ratio to its expected rate of growth"],
+    "context": [""]
+    },
+    {"tag": "peg1_def",
+    "patterns": ["What is Price Earning to Growth","Give me the definition of Price Earning to Growth","What is the definition of Price Earning to Growth","What Price Earning to Growth means"],
+    "responses": ["Price/Earning-to-Growth (Price Earning to Growth) Ratio is a ratio used to predict the company's earnings growth in the future. The Price Earning to Growth ratio compares a company P/E ratio to its expected rate of growth"],
+    "context": [""]
+    },
+    {"tag": "eps_def",
+    "patterns": ["What is EPS","Give me the definition of EPS","What is the definition of EPS","What EPS means"],
+    "responses": ["Earnings Per Share or EPS can be defined as financial ratio of the amount of net income in each share. It indicates how much money a company makes for each share of its stock."],
+    "context": [""]
+    },
+    {"tag": "eps2_def",
+    "patterns": ["What is Earnings Per Share","Give me the definition of Earnings Per Share","What is the definition of Earnings Per Share","What Earnings Per Share means"],
+    "responses": ["EPS or Earnings Per Share can be defined as financial ratio of the amount of net income in each share. It indicates how much money a company makes for each share of its stock."],
+    "context": [""]
+    },
+    {"tag": "profit_margin_def",
+    "patterns": ["What is Profit margin","Give me the definition of Profit margin","What is the definition of Profit margin","What Profit margin means"],
+    "responses": ["Profit margin is the ratio of profitability that represent the precentage of sales that turn into profit. It ususally really depend on the net income of the company."],
+    "context": [""]
+    },
+    {"tag": "dividend_yield_def",
+    "patterns": ["What is dividend yield","Give me the definition of dividend yield","What is the definition of dividend yield","What dividend yield means"],
+    "responses": ["Dividend yield is a financial ratio that used to measure the rate of dividend return to shareholder or investors. For example, if a company has a $20 share price and pays a dividend of $1 per year, its dividend yield would be 5%"],
+    "context": [""]
+    },
+    {"tag": "beta_def",
+    "patterns": ["What is Beta","Give me the definition of Beta","What is the definition of Beta","What Beta means"],
+    "responses": ["A Beta in Stock measures the stock volatility compared with the overall market. In another word, beta is an indicator to measure the sensitivity of a stock to the overall market movement. It's good to showing the risk of the stock to the stock market"],
+    "context": [""]
+    },
+    {"tag": "volatility_def",
+    "patterns": ["What is Volatility","Give me the definition of Volatility","What is the definition of Volatility","What Volatility means"],
+    "responses": ["Volatility is the frequency of movement between rising or falling stock prices. It may be affected by natural disasters, economic and political factors, company performance, or industry and sector factors."],
+    "context": [""]
+    },
+    {"tag": "week_high_52_def",
+    "patterns": ["What is 52 Week High","Give me the definition of 52 Week High","What is the definition of 52 Week High","What 52 Week High means"],
+    "responses": ["Indicators that are usually used by investors and sellers in analyzing stocks. It explained the range of stock prices from lowest to highest during the previous year (52 Weeks). 52-week high means the highest stock price can reach or traded during that period (in 52 weeks). You can see this price to help you understand the current stocks value in the stock market."],
+    "context": [""]
+    },
+    {"tag": "week_low_52_def",
+    "patterns": ["What is 52 Week Low","Give me the definition of 52 Week Low","What is the definition of 52 Week Low","What 52 Week Low means"],
+    "responses": ["Indicators that are usually used by investors and sellers in analyzing stocks. It explained the range of stock prices from lowest to highest during the previous year (52 Weeks). 52-week low means the lowest stock price can reach or traded during that period (in 52 weeks). You can use 52 week low to determine stop-loss levels as a way of limiting losses."],
+    "context": [""]
+    },
+
+
+    {"tag": "link_heroku",
+    "patterns": ["where to learn more about stock market", "How can I learn about stock market", "How to learn about stock market","I want to learn about stock market"],
+    "responses": ["You may visit our link : ", "If you interested about Stock Market, you may visit our link : "],
+    "context": [""]
+    },
+
+    {"tag": "thanks",
+     "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure"],
+     "context": [""]
+    },
+    {"tag": "noanswer",
+     "patterns": [],
+     "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+     "context": [""]
+    }
+]
+}
