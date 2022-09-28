@@ -16,11 +16,12 @@ def app():
 
     def get_news(ticker):
         url = finviz_url + ticker
+        # Act as a browser
         req = Request(url=url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0'}) 
         response = urlopen(req)    
         # Read the contents of the file into 'html'
         html = BeautifulSoup(response)
-        # Find 'news-table' in the Soup and load it into 'news_table'
+        # Find the id through inspect element and find news table
         news_table = html.find(id='news-table')
         return news_table
     
@@ -69,11 +70,7 @@ def app():
     'drop': -10,
     'crash': -10,
     'bearish': -10,
-    'bear': -5,
-    'fall': -5,
-    'bears': -2,
-    'up': 1,
-    'struggles': -5}
+    'bear': -5}
     vader = SentimentIntensityAnalyzer()
     vader.lexicon.update(new_words)
 
@@ -106,7 +103,7 @@ def app():
     def plot_hourly_sentiment(parsed_and_scored_news, ticker):
 
         # Group by date and ticker columns from scored_news and calculate the mean
-        mean_scores = parsed_and_scored_news.head(20).resample('H').mean()
+        mean_scores = parsed_and_scored_news.resample('H').mean()
 
         # Plot a bar chart with plotly 
         fig2 = px.bar(mean_scores, x=mean_scores.index, y='sentiment_score', title = ticker + ' Hourly Sentiment Scores')

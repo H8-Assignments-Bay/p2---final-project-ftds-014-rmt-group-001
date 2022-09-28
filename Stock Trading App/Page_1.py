@@ -1,9 +1,5 @@
 import streamlit as st
-from datetime import date
 import pandas as pd
-from alpha_vantage.timeseries import TimeSeries
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 from alpha_vantage.fundamentaldata import FundamentalData 
 
 

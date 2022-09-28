@@ -2,6 +2,7 @@ import streamlit as st
 import Page_1
 import Page_2
 import Page_3
+import Page_4
 
 st.set_page_config(
     page_title="StockGuruu",
@@ -13,9 +14,9 @@ st.set_page_config(
 PAGES = {
     "Fundamental Analysis": Page_1,
     "Technical Analysis": Page_2,
-    "Sentimental Analysis": Page_3
+    "Sentimental Analysis": Page_3,
+    "Stock Chat Bot": Page_4
 }
-
 
 st.sidebar.title("Section")
 selection = st.sidebar.selectbox("Choose Pages", list(PAGES.keys())
