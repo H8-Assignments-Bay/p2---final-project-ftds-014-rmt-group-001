@@ -69,7 +69,11 @@ def app():
     'drop': -10,
     'crash': -10,
     'bearish': -10,
-    'bear': -5}
+    'bear': -5,
+    'fall': -5,
+    'bears': -2,
+    'up': 1,
+    'struggles': -5}
     vader = SentimentIntensityAnalyzer()
     vader.lexicon.update(new_words)
 
@@ -102,7 +106,7 @@ def app():
     def plot_hourly_sentiment(parsed_and_scored_news, ticker):
 
         # Group by date and ticker columns from scored_news and calculate the mean
-        mean_scores = parsed_and_scored_news.resample('H').mean()
+        mean_scores = parsed_and_scored_news.head(20).resample('H').mean()
 
         # Plot a bar chart with plotly 
         fig2 = px.bar(mean_scores, x=mean_scores.index, y='sentiment_score', title = ticker + ' Hourly Sentiment Scores')
