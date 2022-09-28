@@ -37,43 +37,47 @@ with open('model/label_encoder.pickle', 'rb') as enc:
 st.title("StockGuru")
 new_data = st.text_input('Ask Here')
 
+data1 = {'col':[new_data]}
+new_data = pd.DataFrame(data1)
+
 # Cleaning
 
+stemmer=SnowballStemmer(language = 'english')
 def clean(text):
-    text = text.lower() # Lowering the case
-    text = re.sub("[^A-Za-z\s']"," ", text) # Choosing only words
+    text = re.sub("[^A-Za-z\s']"," ", str(text)) # Choosing only words
+    text = word_tokenize(text)
+    text = [stemmer.stem(word) for word in text if word not in set(stopwords.words("english"))]
+    text = " ".join(text)
     return text
 
-new_data = clean(new_data)
+new_data['clean'] = new_data['col'].apply(clean)
+new_data = np.array(new_data['clean'])
+
+txt_seq = tokenizer.texts_to_sequences(new_data)
 
 result = keras.preprocessing.sequence.pad_sequences(
-    tokenizer.texts_to_sequences([new_data]),
+    txt_seq,
     truncating='post', 
     maxlen=20)
-# st.write(result)
 
 # new sample data with list format
 
 new_data_list = result
-# st.write(new_data_list)
 
 input_data_json = json.dumps({
     "signature_name": "serving_default",
     "instances": new_data_list.tolist()
 })
 
-URL = "https://backend-stockguru-app-1.herokuapp.com/v1/models/chat_model:predict"
+URL = "https://backend-trial-sg.herokuapp.com/v1/models/chat_model:predict"
 r = requests.post(URL, data=input_data_json)
 res = r.json()
 
 ha = pd.DataFrame(res)
 ha1 = ha['predictions'].to_list()
 res = np.argmax(ha1)
-# st.write(ha1)
-# st.write(res)
 
 tag = lbl_encoder.inverse_transform([res])
-# st.write(tag)
 
 for i in data['intents']:
     if i['tag'] == tag:
