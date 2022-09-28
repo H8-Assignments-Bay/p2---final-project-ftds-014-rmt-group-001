@@ -22,7 +22,6 @@ st.sidebar.title("Section")
 selection = st.sidebar.selectbox("Choose Pages", list(PAGES.keys())
 )
 
-
 st.title("StockGuruu App")
 
 page = PAGES[selection]

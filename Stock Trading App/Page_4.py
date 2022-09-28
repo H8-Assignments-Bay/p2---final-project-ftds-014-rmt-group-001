@@ -22,63 +22,64 @@ from sklearn.preprocessing import LabelEncoder
 import random
 import pickle
 
-# Input Intents
-with open("intents.json") as file:
-    data = json.load(file)
+def app():
+    # Input Intents
+    with open("intents.json") as file:
+        data = json.load(file)
 
-# load tokenizer object
-with open('model/tokenizer.pickle', 'rb') as handle:
-    tokenizer = pickle.load(handle)
+    # load tokenizer object
+    with open('model/tokenizer.pickle', 'rb') as handle:
+        tokenizer = pickle.load(handle)
 
-# load label encoder object
-with open('model/label_encoder.pickle', 'rb') as enc:
-    lbl_encoder = pickle.load(enc)
+    # load label encoder object
+    with open('model/label_encoder.pickle', 'rb') as enc:
+        lbl_encoder = pickle.load(enc)
 
-st.title("StockGuru")
-new_data = st.text_input('Ask Here')
+    st.subheader("StockGuruu Chatbot")
+    new_data = st.text_input('Ask Here')
 
-data1 = {'col':[new_data]}
-new_data = pd.DataFrame(data1)
+    data1 = {'col':[new_data]}
+    new_data = pd.DataFrame(data1)
 
-# Cleaning
+    # Cleaning
 
-stemmer=SnowballStemmer(language = 'english')
-def clean(text):
-    text = re.sub("[^A-Za-z\s']"," ", str(text)) # Choosing only words
-    text = word_tokenize(text)
-    text = [stemmer.stem(word) for word in text if word not in set(stopwords.words("english"))]
-    text = " ".join(text)
-    return text
+    stemmer=SnowballStemmer(language = 'english')
+    def clean(text):
+        text = re.sub("[^A-Za-z\s']"," ", str(text)) # Choosing only words
+        text = word_tokenize(text)
+        text = [stemmer.stem(word) for word in text if word not in set(stopwords.words("english"))]
+        text = " ".join(text)
+        return text
 
-new_data['clean'] = new_data['col'].apply(clean)
-new_data = np.array(new_data['clean'])
+    new_data['clean'] = new_data['col'].apply(clean)
+    new_data = np.array(new_data['clean'])
 
-txt_seq = tokenizer.texts_to_sequences(new_data)
+    txt_seq = tokenizer.texts_to_sequences(new_data)
 
-result = keras.preprocessing.sequence.pad_sequences(
-    txt_seq,
-    truncating='post', 
-    maxlen=20)
+    result = keras.preprocessing.sequence.pad_sequences(
+        txt_seq,
+        truncating='post', 
+        maxlen=20)
 
-# new sample data with list format
+    # new sample data with list format
 
-new_data_list = result
+    new_data_list = result
 
-input_data_json = json.dumps({
-    "signature_name": "serving_default",
-    "instances": new_data_list.tolist()
-})
+    input_data_json = json.dumps({
+        "signature_name": "serving_default",
+        "instances": new_data_list.tolist()
+    })
 
-URL = "https://backend-trial-sg.herokuapp.com/v1/models/chat_model:predict"
-r = requests.post(URL, data=input_data_json)
-res = r.json()
+    URL = "https://backend-trial-sg.herokuapp.com/v1/models/chat_model:predict"
+    r = requests.post(URL, data=input_data_json)
+    res = r.json()
 
-ha = pd.DataFrame(res)
-ha1 = ha['predictions'].to_list()
-res = np.argmax(ha1)
+    ha = pd.DataFrame(res)
+    ha1 = ha['predictions'].to_list()
+    res = np.argmax(ha1)
 
-tag = lbl_encoder.inverse_transform([res])
+    tag = lbl_encoder.inverse_transform([res])
 
-for i in data['intents']:
-    if i['tag'] == tag:
-        st.write(np.random.choice(i['responses']))
+    for i in data['intents']:
+        if i['tag'] == tag:
+            st.write(np.random.choice(i['responses']))
